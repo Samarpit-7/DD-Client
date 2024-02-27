@@ -28,10 +28,10 @@ const HomePage = () => {
     definition: "Definition",
     possibleValues: "Possible Values",
     synonyms: "Synonyms",
-    calculatedInfo: "Calculated Info",
+    // calculatedInfo: "Calculated Info",
   };
   return (
-    <Container className="text-center container-fluid p-0 w-100">
+    <Container fluid className="text-center p-3 w-100">
       <h1>Data Dictionary</h1>
       {/* <ImportFiles />
       <ExportFIles /> */}

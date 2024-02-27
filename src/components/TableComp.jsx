@@ -1,9 +1,13 @@
 import React, { useState } from "react";
-import { Button, Table } from "react-bootstrap";
+import { Button, Spinner, Table } from "react-bootstrap";
 
 const TableComp = ({ data, columnMapping }) => {
   if (!data || data.length === 0) {
-    return <div>No data available</div>;
+    return (
+      <div>
+        <Spinner />
+      </div>
+    );
   }
 
   const columns = Object.keys(columnMapping);
@@ -19,13 +23,13 @@ const TableComp = ({ data, columnMapping }) => {
 
   const renderCellContent = (row, columnKey, rowIndex) => {
     if (Array.isArray(row[columnKey])) {
-      if (row[columnKey].length > 5) {
+      if (row[columnKey].length > 1) {
         // Assuming the limit of displaying possible values is 5
         return (
           <div>
             {expandedRows.includes(rowIndex)
-              ? row[columnKey].join(", ")
-              : row[columnKey].slice(0, 5).join(", ")}
+              ? row[columnKey].join(",")
+              : row[columnKey].slice(0, 1).join(",")}
             <br />
             {expandedRows.includes(rowIndex) ? (
               <Button
